@@ -1,0 +1,2 @@
+Place the packaged Tableau workbook (.twbx) here after exporting from Tableau.
+Screenshot included in screenshots/nsm_product_health_dashboard.png.
