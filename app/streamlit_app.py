@@ -246,7 +246,7 @@ st.divider()
 monthly = (
     filtered
     .set_index("event_date")
-    .resample("M")
+    .resample("ME")
     .agg({
         "activation_rate": "mean",
         "conversion_rate": "mean",
@@ -276,7 +276,7 @@ with c1:
         texttemplate="%{text:.1f}",
         textposition="top center",
         line=dict(width=3),
-        marker=dict(size=7)
+        marker=dict(size=9)
     )
 
     fig.update_yaxes(showticklabels=False)
@@ -304,6 +304,7 @@ with c2:
     )
 
     fig.update_layout(xaxis_tickformat=".0%")
+    fig.update_traces(textposition="inside")
     fig = clean_fig(fig, height=390, showlegend=False)
 
     st.plotly_chart(fig, use_container_width=True)
@@ -326,11 +327,12 @@ with c3:
     )
 
     fig.update_layout(xaxis_tickformat=".0%")
+    fig.update_traces(textposition="inside")
     fig = clean_fig(fig, height=390, showlegend=False)
 
     st.plotly_chart(fig, use_container_width=True)
 
-c4, c5, c6 = st.columns([1.2, 1, 1])
+c4, c5, c6 = st.columns([1.25, 1, 1])
 
 with c4:
     fig = px.scatter(
@@ -340,15 +342,16 @@ with c4:
         size="engagement_score",
         color="experiment_group",
         hover_data=["segment", "country", "revenue_per_user"],
-        title="Retention vs Churn Risk"
+        title="Retention vs Churn Risk",
+        size_max=22
     )
 
     fig.update_traces(
         marker=dict(
             sizemode="area",
-            sizeref=22,
-            opacity=0.65,
-            line=dict(width=0.5, color="white")
+            sizeref=5,
+            opacity=0.55,
+            line=dict(width=0.4, color="white")
         )
     )
 
@@ -357,7 +360,7 @@ with c4:
         yaxis_tickformat=".0%"
     )
 
-    fig = clean_fig(fig, height=400, showlegend=True)
+    fig = clean_fig(fig, height=430, showlegend=False)
 
     st.plotly_chart(fig, use_container_width=True)
 
@@ -390,7 +393,8 @@ with c5:
     )
 
     fig.update_layout(xaxis_tickformat=".0%")
-    fig = clean_fig(fig, height=400, showlegend=False)
+    fig.update_traces(textposition="inside")
+    fig = clean_fig(fig, height=430, showlegend=False)
 
     st.plotly_chart(fig, use_container_width=True)
 
@@ -415,7 +419,8 @@ with c6:
     )
 
     fig.update_layout(xaxis_tickformat=".0%")
-    fig = clean_fig(fig, height=400, showlegend=False)
+    fig.update_traces(textposition="inside")
+    fig = clean_fig(fig, height=430, showlegend=False)
 
     st.plotly_chart(fig, use_container_width=True)
 
