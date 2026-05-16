@@ -18,25 +18,9 @@ The dashboard evaluates **activation rate, conversion rate, D30 retention, churn
 ## Business Problem
 Product and growth teams need more than isolated KPI reporting. Leadership needs a single readout that answers:
 
->**Is the product growing in a healthy way, and which users, channels, features, or experiments need action?**
+> Is the product growing in a healthy way, and which segments, channels, or features need action?
 
-Without centralized KPI monitoring, teams risk:
-
-- declining retention
-- rising churn risk
-- poor feature adoption
-- ineffective experimentation rollout
-- weak monetization decisions
-
-This repository transforms product usage data into an **executive-ready product health decision system** using:
-
-- KPI monitoring
-- retention analysis
-- feature adoption
-- channel analysis
-- segmentation
-- experimentation readout
-- monetization tracking
+This repo turns product usage data into an executive-ready product health dashboard using KPI monitoring, retention analysis, segmentation, feature adoption, channel comparison, and experiment group readout.
 
 ---
 
@@ -83,37 +67,6 @@ engagement_score, engagement_band
 
 ---
 
-
-## EDA + Cleaning + Feature Engineering
-**Cleaning Workflow**
-1. Load Data
-2. Dataset Overview
-3. Missing Values
-4. Duplicates
-5. Datatype Cleaning
-6. Column Cleaning
-7. Text Cleaning
-8. Outlier Detection
-9. Range Validation
-10. KPI Validation
-11. Feature Engineering
-12. Business Logic Validation
-13. Summary Statistics
-14. Final Clean Dataset Export
-15. Insight Summary
-
-**Feature Engineering**
-- engagement_band
-- risk_category
-- decision_signal
-- retention_health
-- feature_engagement_level
-- conversion_tier
-
-**Final Output**
-- data/processed/nsm_dataset_clean.csv
----
-
 ## Metrics Engineering
 
 | Metric | Formula / Logic |
@@ -127,6 +80,7 @@ engagement_score, engagement_band
 | Feature Adoption Rate | Users adopting a feature / Eligible users |
 | Engagement Band | Low / Medium / High classification based on engagement score |
 
+---
 
 ## Representative SQL Queries
 
@@ -184,6 +138,9 @@ ORDER BY feature_adoption_rate DESC;
 
 ## Dashboard Preview
 
+### Main Executive Dashboard
+![Main Dashboard](screenshots/dashboard_preview.png)
+
 ### KPI Overview
 ![KPI Overview](screenshots/kpi_overview.png)
 
@@ -214,17 +171,16 @@ Scale Variant B only if D30 retention remains stable and churn risk does not inc
 ## Measurable Business Impact
 This product health dashboard can help teams:
 
-- Improve activation and conversion by 5–12% through stronger feature and channel prioritization.
-- Improve D30 retention by 4–10% using behavioral insights and segment optimization.
-- Reduce churn risk by 3–8% through earlier intervention.
-- Increase revenue per user by 5–15% through stronger monetization targeting.
-- Reduce manual reporting effort by 30–50% by consolidating product KPIs into a single executive dashboard.
+- Improve activation and conversion by identifying stronger segments, channels, and feature experiences.
+- Reduce churn risk by monitoring retention and churn movement before scaling product changes.
+- Improve product roadmap prioritization by showing which features drive stronger adoption.
+- Increase monetization focus by comparing revenue per user across segments and channels.
+- Shorten executive decision cycles by turning product health data into a single KPI readout.
 
 Example scenario:
 
 ```text
-If Variant B improves conversion by 6–9% while maintaining stable retention,
-leadership can confidently scale rollout with lower business risk..
+If Variant B improves conversion by 5–8% but weakens D30 retention, leadership can avoid a risky full rollout and continue targeted testing before scaling.
 ```
 
 ---
