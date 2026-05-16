@@ -189,7 +189,7 @@ def clean_fig(fig, height=380, showlegend=False):
     fig.update_layout(
         height=height,
         showlegend=showlegend,
-        margin=dict(l=10, r=10, t=50, b=10),
+        margin=dict(l=10, r=10, t=50, b=35),
         plot_bgcolor="white",
         paper_bgcolor="white",
         font=dict(size=12),
@@ -198,15 +198,22 @@ def clean_fig(fig, height=380, showlegend=False):
 
     fig.update_xaxes(
         title=None,
-        showgrid=True,
-        gridcolor="#eeeeee",
-        zeroline=False
+        showgrid=False,
+        zeroline=False,
+        showline=True,
+        linecolor="#d9d9d9",
+        linewidth=1,
+        ticks="outside",
+        tickfont=dict(size=11)
     )
 
     fig.update_yaxes(
         title=None,
         showgrid=False,
-        zeroline=False
+        zeroline=False,
+        showline=False,
+        ticks="",
+        tickfont=dict(size=11)
     )
 
     return fig
@@ -272,7 +279,7 @@ with c1:
         marker=dict(size=7)
     )
 
-    fig.update_yaxes(tickformat=".1f")
+    fig.update_yaxes(showticklabels=False)
     fig = clean_fig(fig, height=390, showlegend=False)
 
     st.plotly_chart(fig, use_container_width=True)
